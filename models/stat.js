@@ -59,7 +59,7 @@ module.exports = function(sequelize, DataTypes) {
         this.findAll({
           attributes: [
             'location_name'
-            [sequelize.fn('DISTINCT', sequelize.col('location_id')),'location_id'],
+            [sequelize.fn('DISTINCT', sequelize.col('location_id')),'location_id']
           ],
           order: [
             ['location_name', 'ASC']

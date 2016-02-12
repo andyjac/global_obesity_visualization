@@ -55,7 +55,7 @@ module.exports = function(sequelize, DataTypes) {
     }
   }, {
     classMethods: {
-      getAll: function(cb) {
+      getUniqueLocations: function(cb) {
         this.findAll({
           attributes: [
             'location_name'
@@ -73,7 +73,7 @@ module.exports = function(sequelize, DataTypes) {
         });
       },
 
-      getAllByLocation: function(locationId, cb) {
+      getAverageByLocation: function(locationId, cb) {
         this.findAll({
           attributes: [
             'sex', 'year',

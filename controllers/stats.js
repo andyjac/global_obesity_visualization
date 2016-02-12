@@ -3,7 +3,7 @@ var Stat = require('../models').Stat;
 var router = express.Router();
 
 router.get('/', function(req, res, next) {
-  Stat.getAll(function(err, stats) {
+  Stat.getUniqueLocations(function(err, stats) {
     if (err) {
       return next(err);
     }
@@ -13,9 +13,9 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/:locationId', function(req, res, next) {
-  var locationId = req.params.locationId;
+  var id = req.params.locationId;
 
-  Stat.getAllByLocation(locationId, function(err, stats) {
+  Stat.getAverageByLocation(id, function(err, stats) {
     if (err) {
       return next(err);
     }

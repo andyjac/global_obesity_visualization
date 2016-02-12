@@ -57,9 +57,12 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       getAll: function(cb) {
         this.findAll({
-          attributes: ['id', 'location']
+          attributes: [
+            [
+              sequelize.fn('DISTINCT', sequelize.col('location_id')),'location_id'
+            ], 'location_name'
+          ]
         }).then(function(stats) {
-          console.log(stats.length);
           cb(null, stats);
           return null;
         }).error(function(err) {

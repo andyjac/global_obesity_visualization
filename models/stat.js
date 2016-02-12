@@ -58,8 +58,8 @@ module.exports = function(sequelize, DataTypes) {
       getUniqueLocations: function(cb) {
         this.findAll({
           attributes: [
+            [sequelize.fn('DISTINCT', sequelize.col('location_id')), 'location_id'],
             'location_name'
-            [sequelize.fn('DISTINCT', sequelize.col('location_id')),'location_id']
           ],
           order: [
             ['location_name', 'ASC']
@@ -76,8 +76,8 @@ module.exports = function(sequelize, DataTypes) {
       getAverageByLocation: function(locationId, cb) {
         this.findAll({
           attributes: [
-            'sex', 'year',
-            [sequelize.fn('AVG', sequelize.col('mean')), 'average']
+            [sequelize.fn('AVG', sequelize.col('mean')), 'average'],
+            'sex', 'year'
           ],
           where: { location_id: locationId },
           group: ['Stat.sex', 'Stat.year'],

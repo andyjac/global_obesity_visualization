@@ -1,0 +1,19 @@
+#!/bin/bash
+
+echo ''
+echo '* INTALLING PACKAGES'
+echo ''
+
+npm install
+
+echo ''
+echo '* BUILDING DATABASE'
+echo ''
+
+node --max-old-space-size=8192 ./setup/index.js
+
+echo ''
+echo '* RUNNING SERVER'
+echo ''
+
+node ./app.js

@@ -75,9 +75,15 @@ module.exports = function(sequelize, DataTypes) {
 
       getAllByLocation: function(locationId, cb) {
         this.findAll({
-          where: {
-            location_id: locationId
-          }
+          attributes: [
+            'sex', 'year',
+            [sequelize.fn('AVG', sequelize.col('mean')), 'average']
+          ],
+          where: { location_id: locationId },
+          group: ['Stat.sex', 'Stat.year'],
+          order: [
+            ['year', 'ASC']
+          ]
         }).then(function(stats) {
           cb(null, stats);
           return null;

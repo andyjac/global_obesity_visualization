@@ -60,7 +60,11 @@ module.exports = function(sequelize, DataTypes) {
           attributes: [
             [
               sequelize.fn('DISTINCT', sequelize.col('location_id')),'location_id'
-            ], 'location_name'
+            ],
+            'location_name'
+          ],
+          order: [
+            ['location_name', 'ASC']
           ]
         }).then(function(stats) {
           cb(null, stats);

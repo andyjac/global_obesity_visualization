@@ -1,0 +1,17 @@
+{
+  "production": {
+    "database": "der3jt3s6mom9i",
+    "username": "afiaefpiubnopg",
+    "password": "m4ZW4bE8Le6cA-ACv6iQR2NGRl"
+  },
+  "development": {
+    "database": "ihme",
+    "username": "andyjac",
+    "password": "48C5A7CA-B9A0-4968-9C2E-0995EA0D2571"
+  },
+  "test": {
+    "database": "ihme_test",
+    "username": "andyjac",
+    "password": "48C5A7CA-B9A0-4968-9C2E-0995EA0D2571"
+  }
+}

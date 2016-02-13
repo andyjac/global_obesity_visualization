@@ -1,6 +1,4 @@
-var isDevEnv = process.env.NODE_ENV === 'development';
-
-if (isDevEnv) {
+if (process.env.NODE_ENV === 'development') {
   require('dotenv').load();
 }
 

@@ -2,18 +2,19 @@ var fs = require('fs');
 var path = require('path');
 var Sequelize = require('sequelize');
 var env = process.env.NODE_ENV || 'development';
-var config = require(__dirname + '/../config.json')[env];
 var db = {};
 
 var sequelize;
 
-if (process.env.DATABASE_URL) {
+if (env === 'production') {
   sequelize = new Sequelize(process.env.DATABASE_URL, {
     dialect: 'postgres',
     protocol: 'postgres',
     logging: false
   });
 } else {
+  var config = require(__dirname + '/../config.json')[env];
+
   sequelize = new Sequelize(
     config.database,
     config.username,
@@ -35,8 +36,6 @@ Object.keys(db).forEach(function(modelName) {
     db[modelName].associate(db);
   }
 });
-
-//sequelize.sync();
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;

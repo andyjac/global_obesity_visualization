@@ -5,14 +5,23 @@ var env = process.env.NODE_ENV || 'development';
 var config = require(__dirname + '/../config.json')[env];
 var db = {};
 
-var sequelize = new Sequelize(
-  process.env.DATABASE_URL || config.database,
-  process.env.DATABASE_USERNAME || config.username,
-  process.env.DATABASE_PASSWORD || config.password, {
+var sequelize;
+
+if (process.env.DATABASE_URL) {
+  sequelize = new Sequelize(process.env.DATABASE_URL, {
     dialect: 'postgres',
+    protocol: 'postgres',
     logging: false
-  }
-);
+  });
+} else {
+  sequelize = new Sequelize(
+    config.database,
+    config.username,
+    config.password, {
+      dialect: 'postgres',
+      logging: false
+    });
+}
 
 fs.readdirSync(__dirname).filter(function(file) {
   return (file[0] !== '.') && (file !== 'index.js');

@@ -15,57 +15,24 @@ describe('stat controller api test', function() {
   var testData = [
     {
       location_id: 102,
-      location: 'USA',
       location_name: 'United States',
       year: 1990,
-      age_group_id: 34,
-      age_group: '2 to 4 yrs',
-      age_start: 2,
-      age_end: 4,
-      sex_id: 1,
       sex: 'male',
-      unit: 'pct',
-      metric: 'obese',
-      measure: 'prevalence',
       mean: 0.043,
-      lower: 0.035,
-      upper: 0.052
     },
     {
       location_id: 102,
-      location: 'USA',
       location_name: 'United States',
       year: 1990,
-      age_group_id: 21,
-      age_group: '80+ yrs',
-      age_start: 80,
-      age_end: 100,
-      sex_id: 1,
       sex: 'male',
-      unit: 'pct',
-      metric: 'obese',
-      measure: 'prevalence',
       mean: 0.222,
-      lower: 0.188,
-      upper: 0.264
     },
     {
       location_id: 102,
-      location: 'USA',
       location_name: 'United States',
       year: 2013,
-      age_group_id: 12,
-      age_group: '35 to 39 yrs',
-      age_start: 35,
-      age_end: 39,
-      sex_id: 2,
       sex: 'female',
-      unit: 'pct',
-      metric: 'obese',
-      measure: 'prevalence',
       mean: 0.34,
-      lower: 0.28,
-      upper: 0.406
     }
   ];
 

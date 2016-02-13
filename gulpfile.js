@@ -18,7 +18,8 @@ gulp.task('watch', function(cb) {
     'watch:server',
     'watch:gulp',
     'watch:lib',
-    'watch:setup'
+    'watch:setup',
+    'watch:test'
   ], cb);
 });
 
@@ -27,7 +28,8 @@ gulp.task('lint', function(cb) {
     'lint:server',
     'lint:gulp',
     'lint:lib',
-    'lint:setup'
+    'lint:setup',
+    'lint:test'
   ], cb);
 });
 

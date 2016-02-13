@@ -6,7 +6,7 @@ module.exports = function(input, cb) {
   var total = input.length;
 
   if (process.env.NODE_ENV === 'production') {
-    total = 10000;
+    total = 9999;
   }
 
   var bar = buildProgressBar(total);

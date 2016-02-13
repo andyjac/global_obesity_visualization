@@ -1,9 +1,4 @@
 {
-  "production": {
-    "database": "der3jt3s6mom9i",
-    "username": "afiaefpiubnopg",
-    "password": "m4ZW4bE8Le6cA-ACv6iQR2NGRl"
-  },
   "development": {
     "database": "ihme",
     "username": "andyjac",

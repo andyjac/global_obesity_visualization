@@ -6,9 +6,9 @@ var config = require(__dirname + '/../config.json')[env];
 var db = {};
 
 var sequelize = new Sequelize(
-  config.database,
-  config.username,
-  config.password, {
+  process.env.DATABASE_URL || config.database,
+  process.env.DATABASE_USERNAME || config.username,
+  process.env.DATABASE_PASSWORD || config.password, {
     dialect: 'postgres',
     logging: false
   }

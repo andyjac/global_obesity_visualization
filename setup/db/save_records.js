@@ -3,17 +3,9 @@ var ProgressBar = require('progress');
 var Stat = require('../../models').Stat;
 
 module.exports = function(input, cb) {
-  var total = input.length;
-
-  if (process.env.NODE_ENV === 'production') {
-    total = 1000;
-  }
-
-  var bar = buildProgressBar(total);
+  var bar = buildProgressBar(input.length);
 
   var cargo = async.cargo(function(stats, callback) {
-    console.log('saving stats:', stats);
-
     Stat.bulkCreate(stats)
       .then(function() {
         callback(null);

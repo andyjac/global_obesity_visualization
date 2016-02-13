@@ -13,7 +13,7 @@ module.exports = function(input, cb) {
   var keys = helpers.parseKeys(input);
   var data = helpers.parseData(input);
 
-  var stats = _.filter(data, function(dataString) {
+  var stats = _.map(data, function(dataString) {
     var attrString = helpers.sanitizeString(dataString);
     var attrs = attrString.split(',');
 
@@ -24,7 +24,6 @@ module.exports = function(input, cb) {
         stat[key] = value.replace(/\|/g, ',');
       }
 
-      console.log('stat built:', stat);
       return stat;
     }, {});
   });

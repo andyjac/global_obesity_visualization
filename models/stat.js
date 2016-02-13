@@ -8,49 +8,16 @@ module.exports = function(sequelize, DataTypes) {
     location_id: {
       type: DataTypes.INTEGER
     },
-    location: {
-      type: DataTypes.STRING
-    },
     location_name: {
       type: DataTypes.STRING
     },
     year: {
       type: DataTypes.INTEGER
     },
-    age_group_id: {
-      type: DataTypes.INTEGER
-    },
-    age_group: {
-      type: DataTypes.STRING
-    },
-    age_start: {
-      type: DataTypes.INTEGER
-    },
-    age_end: {
-      type: DataTypes.INTEGER
-    },
-    sex_id: {
-      type: DataTypes.INTEGER
-    },
     sex: {
       type: DataTypes.STRING
     },
-    unit: {
-      type: DataTypes.STRING
-    },
-    metric: {
-      type: DataTypes.STRING
-    },
-    measure: {
-      type: DataTypes.STRING
-    },
     mean: {
-      type: DataTypes.DECIMAL
-    },
-    lower: {
-      type: DataTypes.DECIMAL
-    },
-    upper: {
       type: DataTypes.DECIMAL
     }
   }, {

@@ -12,6 +12,8 @@ module.exports = function(input, cb) {
   var bar = buildProgressBar(total);
 
   var cargo = async.cargo(function(stats, callback) {
+    console.log('saving stats:', stats);
+
     Stat.bulkCreate(stats)
       .then(function() {
         callback(null);

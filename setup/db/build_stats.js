@@ -24,6 +24,7 @@ module.exports = function(input, cb) {
         stat[key] = value.replace(/\|/g, ',');
       }
 
+      console.log('stat built:', stat);
       return stat;
     }, {});
   });

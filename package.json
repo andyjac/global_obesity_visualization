@@ -27,7 +27,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "node app.js",
+    "postinstall": "node ./setup/index.js"
   },
   "repository": "https://github.com/andyjac/global_obesity_visualization",
   "author": "andyjac",

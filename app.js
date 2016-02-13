@@ -1,4 +1,8 @@
-require('dotenv').load();
+var isDevEnv = process.env.NODE_ENV === 'development';
+
+if (isDevEnv) {
+  require('dotenv').load();
+}
 
 var express = require('express');
 var app = express();

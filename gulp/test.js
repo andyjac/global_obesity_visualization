@@ -6,15 +6,26 @@ gulp.task('test', function() {
   return test(paths.test);
 });
 
-function test(paths) {
-  process.env.NODE_ENV = 'test';
+gulp.task('test:keep-alive', function() {
+  return test(paths.test, true);
+});
 
-  return gulp.src(paths)
+function test(paths, keepAlive) {
+  process.env.NODE_ENV = 'test';
+  process.env.PORT = 3001;
+
+  var test = gulp.src(paths)
     .pipe(mocha())
     .once('error', function(err){
       console.log(err);
       process.exit(1);
-    }).once('end', function() {
+    });
+
+  if (!keepAlive) {
+    test.once('end', function() {
       process.exit(0);
     });
+  }
+
+  return test;
 }

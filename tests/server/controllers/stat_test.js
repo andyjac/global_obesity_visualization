@@ -1,3 +1,4 @@
+var PORT = process.env.PORT || 3001;
 var _ = require('lodash');
 var chai = require('chai');
 var expect = chai.expect;
@@ -18,21 +19,21 @@ describe('stat controller api test', function() {
       location_name: 'United States',
       year: 1990,
       sex: 'male',
-      mean: 0.043,
+      mean: 0.043
     },
     {
       location_id: 102,
       location_name: 'United States',
       year: 1990,
       sex: 'male',
-      mean: 0.222,
+      mean: 0.222
     },
     {
       location_id: 102,
       location_name: 'United States',
       year: 2013,
       sex: 'female',
-      mean: 0.34,
+      mean: 0.34
     }
   ];
 
@@ -55,20 +56,20 @@ describe('stat controller api test', function() {
   });
 
   it('should get an array of all unique locations', function(done) {
-    chai.request('localhost:3000')
+    chai.request('localhost:' + PORT)
       .get('/api/stats')
       .end(function(err, res) {
         expect(err).to.eql(null);
         expect(_.isArray(res.body)).to.eql(true);
         expect(res.body.length).to.eql(1);
-        expect(res.body[0].location_id).to.eql(102)
+        expect(res.body[0].location_id).to.eql(102);
         expect(res.body[0].location_name).to.eql('United States');
         done();
       });
   });
 
   it('should get the average obesity by year and sex for a location by id', function(done) {
-    chai.request('localhost:3000')
+    chai.request('localhost:' + PORT)
       .get('/api/stats/102')
       .end(function(err, res) {
         expect(err).to.eql(null);

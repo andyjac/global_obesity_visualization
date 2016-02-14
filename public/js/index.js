@@ -17,12 +17,12 @@ class App extends Component {
   componentWillMount() {
     request
       .get(API_BASE_URL)
-      .end((err, data) => {
+      .end((err, res) => {
         if (err) {
           return console.log(err);
         }
 
-        this.setState({locations: JSON.parse(data.text)});
+        this.setState({locations: res.body});
       })
   }
 

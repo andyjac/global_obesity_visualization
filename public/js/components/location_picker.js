@@ -18,16 +18,16 @@ class LocationPicker extends Component {
   }
 
   requestLocationStats(id) {
-    var locationUrl = `${this.props.baseUrl}/${id}`;
+    var locationStatsUrl = `${this.props.baseUrl}/${id}`;
 
     request
-      .get(locationUrl)
-      .end((err, data) => {
+      .get(locationStatsUrl)
+      .end((err, res) => {
         if (err) {
           return console.log(err);
         }
 
-        this.setState({location: JSON.parse(data.text)});
+        this.setState({locationStats: res.body});
       })
   }
 

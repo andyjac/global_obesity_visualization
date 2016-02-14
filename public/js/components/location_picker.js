@@ -1,13 +1,14 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
 import request from 'superagent';
+import LocationStats from './location_stats';
 
 class LocationPicker extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      location: null
+      locationStats: null
     }
   }
 
@@ -54,6 +55,7 @@ class LocationPicker extends Component {
         <select ref="locationPicker" onChange={e => this.handleChange(e)}>
           {this.renderLocationOptions()}
         </select>
+        <LocationStats stats={this.state.locationStats} />
       </div>
     )
   }

@@ -3,6 +3,7 @@ var nodemon = require('gulp-nodemon');
 
 var ignored = [
   'public/',
+  'dist/',
   'gulpfile.js',
   'gulp/',
   'tests/'

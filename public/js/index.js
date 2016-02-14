@@ -1,18 +1,38 @@
+import LocationPicker from './components/location_picker';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import request from 'superagent';
+
+const API_BASE_URL = '/api/stats';
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      message: 'hello from react'
+      locations: null
     };
   }
 
+  componentWillMount() {
+    request
+      .get(API_BASE_URL)
+      .end((err, data) => {
+        if (err) {
+          return console.log(err);
+        }
+
+        this.setState({locations: JSON.parse(data.text)});
+      })
+  }
+
   render() {
+    if (!this.state.locations) {
+      return <p>Loading...</p>
+    }
+
     return (
-        <h1>{this.state.message}</h1>
+      <LocationPicker baseUrl={API_BASE_URL} locations={this.state.locations} />
     );
   }
 }

@@ -11,6 +11,7 @@ app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended: true}));
 
 app.use('/api', require('./controllers'));
+app.use(express.static(__dirname + '/dist'));
 
 app.all('*', function(req, res) {
   res.status(404).json({msg: 'page not found'});

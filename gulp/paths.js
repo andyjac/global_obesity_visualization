@@ -7,9 +7,14 @@ module.exports = {
   ],
   gulp: [
     './gulpfile.js',
-    './gulp/**/**'
+    './gulp/**/*.js'
   ],
   lib: ['./lib/**/*.js'],
   setup: ['./setup/**/*.js'],
-  test: ['./tests/**/*test.js']
+  test: ['./tests/**/*test.js'],
+  client: {
+    html: ['./public/**/*.html'],
+    css: ['./public/**/*.css'],
+    js: ['./public/**/**.js']
+  }
 };

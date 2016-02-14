@@ -1,9 +1,10 @@
 var gulp = require('gulp');
 var paths = require('./paths');
-var runSequence = require('run-sequence');
+var helpers = require('../lib/helpers');
 
 require('./lint');
 require('./test');
+require('./build');
 
 gulp.task('watch:server', function() {
   gulp.watch(paths.server, ['lint:server']);
@@ -23,4 +24,10 @@ gulp.task('watch:setup', function() {
 
 gulp.task('watch:test', function() {
   gulp.watch(paths.test, ['lint:test']);
+});
+
+gulp.task('watch:client', function() {
+  var clientPaths = helpers.joinPaths(paths.client);
+
+  gulp.watch(clientPaths, ['build']);
 });

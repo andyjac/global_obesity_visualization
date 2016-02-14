@@ -5,6 +5,7 @@ require('./gulp/lint');
 require('./gulp/nodemon');
 require('./gulp/watch');
 require('./gulp/test');
+require('./gulp/build');
 
 gulp.task('start', function(cb) {
   runSequence(
@@ -19,7 +20,8 @@ gulp.task('watch', function(cb) {
     'watch:gulp',
     'watch:lib',
     'watch:setup',
-    'watch:test'
+    'watch:test',
+    'watch:client'
   ], cb);
 });
 
@@ -36,6 +38,7 @@ gulp.task('lint', function(cb) {
 gulp.task('default', function(cb) {
   runSequence(
     'lint',
+    'build',
     'watch',
     cb);
 });

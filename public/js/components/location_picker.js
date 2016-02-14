@@ -9,7 +9,7 @@ class LocationPicker extends Component {
 
     this.state = {
       locationStats: null
-    }
+    };
   }
 
   componentDidMount() {
@@ -29,7 +29,7 @@ class LocationPicker extends Component {
         }
 
         this.setState({locationStats: res.body});
-      })
+      });
   }
 
   renderLocationOptions() {
@@ -57,7 +57,7 @@ class LocationPicker extends Component {
         </select>
         <LocationStats stats={this.state.locationStats} />
       </div>
-    )
+    );
   }
 }
 

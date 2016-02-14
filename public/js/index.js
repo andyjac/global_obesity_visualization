@@ -23,12 +23,12 @@ class App extends Component {
         }
 
         this.setState({locations: res.body});
-      })
+      });
   }
 
   render() {
     if (!this.state.locations) {
-      return <p>Loading...</p>
+      return <p>Loading...</p>;
     }
 
     return (

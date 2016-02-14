@@ -31,7 +31,8 @@ gulp.task('lint', function(cb) {
     'lint:gulp',
     'lint:lib',
     'lint:setup',
-    'lint:test'
+    'lint:test',
+    'lint:client'
   ], cb);
 });
 

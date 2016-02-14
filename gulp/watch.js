@@ -29,5 +29,5 @@ gulp.task('watch:test', function() {
 gulp.task('watch:client', function() {
   var clientPaths = helpers.joinPaths(paths.client);
 
-  gulp.watch(clientPaths, ['build']);
+  gulp.watch(clientPaths, ['lint:client', 'build']);
 });

@@ -23,6 +23,10 @@ gulp.task('lint:setup', function() {
   return lint(paths.setup);
 });
 
+gulp.task('lint:client', function() {
+  return lint(paths.client.js);
+});
+
 function lint(paths) {
   return gulp.src(paths)
     .pipe(eslint())

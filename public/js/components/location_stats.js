@@ -13,6 +13,11 @@ const MARGINS = {
   bottom: 20,
   left: 50
 };
+const COLORS = {
+  male: 'blue',
+  female: 'green',
+  both: 'orange'
+};
 
 class LocationStats extends Component {
   constructor(props) {
@@ -83,31 +88,38 @@ class LocationStats extends Component {
       xScale: this.getXScale(this.state.male),
       yScale: this.getYScale(this.state.male),
       dataPoints: this.state.male,
-      strokeColor: 'blue'
+      strokeColor: COLORS.male
     };
 
     var femaleLineSettings = {
       xScale: this.getXScale(this.state.female),
       yScale: this.getYScale(this.state.female),
       dataPoints: this.state.female,
-      strokeColor: 'green'
+      strokeColor: COLORS.female
     };
 
     var bothLineSettings = {
       xScale: this.getXScale(this.state.both),
       yScale: this.getYScale(this.state.both),
       dataPoints: this.state.both,
-      strokeColor: 'orange'
+      strokeColor: COLORS.both
     };
 
     return (
-      <svg height={HEIGHT} width={WIDTH}>
-        <Axis {...xAxisSettings} />
-        <Axis {...yAxisSettings} />
-        <Line {...maleLineSettings} />
-        <Line {...femaleLineSettings} />
-        <Line {...bothLineSettings} />
-      </svg>
+      <section>
+        <ul className="key">
+          <li style={{color: COLORS.male}}> - Males</li>
+          <li style={{color: COLORS.female}}> - Females</li>
+          <li style={{color: COLORS.both}}> - Both</li>
+        </ul>
+        <svg height={HEIGHT} width={WIDTH}>
+          <Axis {...xAxisSettings} />
+          <Axis {...yAxisSettings} />
+          <Line {...maleLineSettings} />
+          <Line {...femaleLineSettings} />
+          <Line {...bothLineSettings} />
+        </svg>
+      </section>
     );
   }
 }

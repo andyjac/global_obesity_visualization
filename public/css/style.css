@@ -1,6 +1,5 @@
 .main {
   width: 75%;
-  padding: 5em;
 }
 
 .text-center {
@@ -11,6 +10,16 @@
   margin: 0 auto;
 }
 
-.key {
-  float: right;
+header {
+  margin-bottom: 3em;
+}
+
+.location-picker__container {
+  position: absolute;
+  left: 25px;
+  top: 25px;
+}
+
+select {
+  width: 50%;
 }

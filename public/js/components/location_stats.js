@@ -34,11 +34,9 @@ class LocationStats extends Component {
 
   separateStatsBySex(stats) {
     return _.reduce(stats, (obj, value) => {
-      if (!obj[value.sex]) {
-        obj[value.sex] = [];
-      }
-
-      obj[value.sex].push(value);
+      obj[value.sex] = obj[value.sex] ?
+        obj[value.sex].concat(value) :
+        [].concat(value);
 
       return obj;
     }, {});

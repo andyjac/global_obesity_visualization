@@ -16,9 +16,18 @@ class Axis extends Component {
   }
 
   renderAxis() {
-    var axis = d3.svg.axis()
+    let axis = d3.svg.axis()
         .orient(this.props.orient)
-        .scale(this.props.scale);
+        .scale(this.props.scale)
+        .ticks(10);
+
+    if (this.props.type === 'date') {
+      axis = d3.svg.axis()
+        .orient(this.props.orient)
+        .scale(this.props.scale)
+        .ticks(10)
+        .tickFormat(d3.format('d'));
+    }
 
     d3.select(findDOMNode(this)).call(axis);
   }

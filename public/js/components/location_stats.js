@@ -68,6 +68,7 @@ class LocationStats extends Component {
 
     var xAxisSettings = {
       orient: 'bottom',
+      type: 'date',
       scale: this.getXScale(this.props.stats),
       translate: 'translate(0,' + (HEIGHT - MARGINS.bottom) + ')'
     };

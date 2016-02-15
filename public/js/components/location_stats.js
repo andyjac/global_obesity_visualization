@@ -6,7 +6,7 @@ import Axis from './axis';
 import Line from './line';
 
 const WIDTH = 1000;
-const HEIGHT = 500;
+const HEIGHT = 450;
 const MARGINS = {
   top: 20,
   right: 20,

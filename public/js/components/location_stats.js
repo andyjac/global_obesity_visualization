@@ -44,10 +44,11 @@ class LocationStats extends Component {
 
   getYScale(stats) {
     var max = d3.max(stats, s => { return s.average; });
+    var min = d3.min(stats, s => { return s.average; });
 
     return d3.scale.linear()
       .range([HEIGHT - MARGINS.top, MARGINS.bottom])
-      .domain([0, max]);
+      .domain([min, max]);
   }
 
   getXScale(stats) {

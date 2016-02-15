@@ -64,11 +64,18 @@ class LocationPicker extends Component {
   render() {
     return (
       <section className="center main">
-        <h1 className="text-center">Global Obesity % By Gender (1990 - 2013)</h1>
-        <p>Choose a location:</p>
-        <select ref="locationPicker" onChange={e => this.handleChange(e)}>
-          {this.renderLocationOptions()}
-        </select>
+        <section className="location-picker__container">
+          <p>Choose a location:</p>
+          <select ref="locationPicker" onChange={e => this.handleChange(e)}>
+            {this.renderLocationOptions()}
+          </select>
+        </section>
+        <header className="text-center">
+          <h1 className="text-center">
+            Average Global Obesity % By Gender
+          </h1>
+          <h2>1990 - 2013</h2>
+        </header>
         <h3 className="text-center">{this.state.locationName}</h3>
         <LocationStats stats={this.state.locationStats} />
       </section>

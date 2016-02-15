@@ -101,16 +101,13 @@ class LocationStats extends Component {
     };
 
     return (
-      <div>
-        <h1>Location Stats:</h1>
-        <svg height={HEIGHT} width={WIDTH}>
-          <Axis {...xAxisSettings} />
-          <Axis {...yAxisSettings} />
-          <Line {...maleLineSettings} />
-          <Line {...femaleLineSettings} />
-          <Line {...bothLineSettings} />
-        </svg>
-      </div>
+      <svg height={HEIGHT} width={WIDTH}>
+        <Axis {...xAxisSettings} />
+        <Axis {...yAxisSettings} />
+        <Line {...maleLineSettings} />
+        <Line {...femaleLineSettings} />
+        <Line {...bothLineSettings} />
+      </svg>
     );
   }
 }

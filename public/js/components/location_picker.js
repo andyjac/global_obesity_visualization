@@ -8,6 +8,7 @@ class LocationPicker extends Component {
     super(props);
 
     this.state = {
+      locationName: null,
       locationStats: null
     };
   }
@@ -15,6 +16,7 @@ class LocationPicker extends Component {
   componentDidMount() {
     var locationId = this.refs.locationPicker.value;
 
+    this.setLocationName();
     this.requestLocationStats(locationId);
   }
 
@@ -32,6 +34,18 @@ class LocationPicker extends Component {
       });
   }
 
+  setLocationName() {
+    var selectEl = this.refs.locationPicker;
+
+    if (selectEl.selectedIndex > -1) {
+      var i = selectEl.selectedIndex;
+
+      this.setState({
+        locationName: selectEl.options[i].text
+      });
+    }
+  }
+
   renderLocationOptions() {
     return _.map(this.props.locations, location => {
       return (
@@ -43,20 +57,20 @@ class LocationPicker extends Component {
   }
 
   handleChange(e) {
-    var locationId = e.target.value;
-
-    this.requestLocationStats(locationId);
+    this.setLocationName();
+    this.requestLocationStats(e.target.value);
   }
 
   render() {
     return (
-      <div>
+      <section>
         <p>Choose a location:</p>
         <select ref="locationPicker" onChange={e => this.handleChange(e)}>
           {this.renderLocationOptions()}
         </select>
+        <h1>{this.state.locationName}</h1>
         <LocationStats stats={this.state.locationStats} />
-      </div>
+      </section>
     );
   }
 }

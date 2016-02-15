@@ -16,6 +16,29 @@ const MARGINS = {
 class LocationStats extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      male: null,
+      female: null,
+      both: null
+    };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.stats) {
+      var stats = nextProps.stats;
+
+      this.setState(this.separateStatsBySex(stats));
+    }
+  }
+
+  separateStatsBySex(stats) {
+    return _.reduce(stats, (obj, value) => {
+      obj[value.sex] = obj[value.sex] ?
+        obj[value.sex].concat(value) : [];
+
+      return obj;
+    }, {});
   }
 
   getYScale(stats) {

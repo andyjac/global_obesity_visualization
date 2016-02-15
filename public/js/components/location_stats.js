@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
 import d3 from 'd3';
 import Axis from './axis';
+import Line from './line';
 
 const WIDTH = 1000;
 const HEIGHT = 500;
@@ -77,12 +78,36 @@ class LocationStats extends Component {
       translate: 'translate(' + (MARGINS.left) + ',0)'
     };
 
+    var maleLineSettings = {
+      xScale: this.getXScale(this.state.male),
+      yScale: this.getYScale(this.state.male),
+      dataPoints: this.state.male,
+      strokeColor: 'blue'
+    };
+
+    var femaleLineSettings = {
+      xScale: this.getXScale(this.state.female),
+      yScale: this.getYScale(this.state.female),
+      dataPoints: this.state.female,
+      strokeColor: 'green'
+    };
+
+    var bothLineSettings = {
+      xScale: this.getXScale(this.state.both),
+      yScale: this.getYScale(this.state.both),
+      dataPoints: this.state.both,
+      strokeColor: 'orange'
+    };
+
     return (
       <div>
         <h1>Location Stats:</h1>
         <svg height={HEIGHT} width={WIDTH}>
           <Axis {...xAxisSettings} />
           <Axis {...yAxisSettings} />
+          <Line {...maleLineSettings} />
+          <Line {...femaleLineSettings} />
+          <Line {...bothLineSettings} />
         </svg>
       </div>
     );

@@ -7,8 +7,8 @@ Live site can be found at [global-obesity-visualization.herokuapp.com](http://gl
 #### Run the app locally:
 
 1. Clone this repository
-3. Install Postgres and create a database
-4. Setup the following `config.json` file in the root of the project:
+2. Install Postgres and create a database
+3. Setup the following `config.json` file in the root of the project:
 ```
 {
   "development": {
@@ -23,7 +23,7 @@ Live site can be found at [global-obesity-visualization.herokuapp.com](http://gl
   }
 }
 ```
-5. Run `./run` from the root of the project to build and run the app
-6. Open up `localhost:3000` in your favorite browser
+4. Run `./run` from the root of the project to build and run the app
+5. Open up `localhost:3000` in your favorite browser
 
 If you've set up the app locally you can run the tests with `gulp test`

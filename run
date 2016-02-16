@@ -15,12 +15,6 @@ echo ''
 node --max-old-space-size=8192 ./setup/index.js
 
 echo ''
-echo '* BUILDING CLIENT'
-echo ''
-
-gulp build
-
-echo ''
 echo '* RUNNING SERVER'
 echo ''
 

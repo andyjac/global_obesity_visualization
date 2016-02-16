@@ -8,7 +8,7 @@ Live site can be found at [global-obesity-visualization.herokuapp.com](http://gl
 
 1. Clone this repository
 3. Install Postgres and create a database
-4. Set up the following `config.json` file in the root of the project:
+4. Setup the following `config.json` file in the root of the project:
 ```
 {
   "development": {
